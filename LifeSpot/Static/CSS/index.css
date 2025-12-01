@@ -1,0 +1,75 @@
+﻿/* Свойства стиля элемента. Подробнее о них в модуле по CSS */
+.video-container {
+    display: inline-block;
+    padding: 1%;
+}
+
+.navbar {
+    color: gray;
+    padding-left: 15%;
+}
+
+header {
+    padding-left: 1%;
+}
+
+    header #search:hover {
+        background-color: #F5DFDA
+    }
+
+footer {
+    padding-left: 1%;
+    position: absolute;
+    bottom: 0;
+    font-size: 13px;
+    line-height: 5px;
+}
+
+aside {
+    height: 97%; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
+    width: 10%;
+    position: absolute; /* Фиксированная позиция сайд-бара. Так он будет оставаться на месте при скроллинге */
+    z-index: 1; /* Сайд-бар будет поверх остальных элементов */
+    top: 0; /* Сайдбар будет в самой верхней части страницы */
+    left: 0;
+    background-color: #111; /* Черный цвет фона (задан в виде кода) */
+    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+    padding-top: 20px;
+}
+
+* {
+    font-family: "Helvetica 65 Medium", sans-serif;
+}
+
+body {
+    margin-left:11%;
+}
+
+
+iframe {
+    border: 1px solid #c9ced6;
+}
+
+.video-title {
+    font-size: 12px;
+    overflow: hidden;
+    color: red;
+}
+
+.navbar p {
+    color: #6999fa;
+    padding-left: 15%;
+}
+
+    .navbar p:hover {
+        color: red;
+    }
+
+header, footer, body {
+    background-color: linen;
+}
+
+#main {
+    position:static
+    border: 1px solid red;
+}
