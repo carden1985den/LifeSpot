@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>LifeSpot</title>
+    <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
+    <script src="../Static/Scripts/welcome.js" defer></script>
+</head>
+
+<header id="header-index">
+    <h1>LifeSpot - тестовая страница</h1>
+    <p>Здесь можно экспериментировать с кодом</p>
+    <input type="text" oninput="
+
+        let userInput = document.getElementsByTagName('input')[0];
+        console.log(userInput.value.toLocaleLowerCase());
+
+        for (let element of document.getElementsByClassName('video-container')) {
+            let childElement = element.getElementsByTagName('h3')[0];
+
+            if (!childElement.innerText.toLocaleLowerCase().includes(userInput.value.toLocaleLowerCase())) {
+
+                //let  = document.getElementById('SearchLable')[0];
+                //console.log(textLable);
+                //textLable.innerText = childElement.innerText;
+                element.style.display = 'none';
+                console.log(childElement.innerText);
+            } else {
+                element.style.display = 'inline-block';
+            }
+        }
+
+    " size=50%>
+</header>
+
+<aside id="sidebar">
+    <div class="navbar">
+        <a href="/"><p>Трансляции</p></a>
+        <a href="/"><p>О проекте</p></a>
+    </div>
+</aside>
+
+<!--SIDEBAR-->
+<body>
+    <div style="margin:1% 1%; border:0px solid black; width:99%; height:100%; ">
+        <div>
+            <div class="video-container" style="border: 1px solid black; display: inline-block; margin: 5px; padding: 2px">
+                <div style="background-color: yellow; height: 160px; width: 250px"></div>
+                <h3>Санкт-Петербург</h3>
+            </div>
+            <div class="video-container" style="border: 1px solid black; display: inline-block; margin: 5px; padding: 2px ">
+                <div style="background-color: red;height: 160px; width: 250px"></div>
+                <h3>Нью-Йорк</h3>
+            </div>
+            <div class="video-container" style="border: 1px solid black; display: inline-block; margin: 5px; padding:2px">
+                <div style="background-color: blue; height: 160px; width: 250px"></div>
+                <h3>Лондон</h3>
+                </divclass="video-container">
+            </div>
+
+        </div>
+        <label id="SearchLable">Поиск...</label>
+</body>
+<!--FOOTER-->
+
+</html>

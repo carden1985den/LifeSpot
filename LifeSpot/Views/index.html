@@ -1,20 +1,32 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
 <head>
+    <link href="..\static\css\main.css" rel="stylesheet" type="text/css" </link>
+
     <meta charset="UTF-8">
     <title>LifeSpot</title>
-    <link href="..\static\css\index.css" rel="stylesheet" type="text/css" </link>
+
+    <!-- Внешний скрипт -->
+    <script src="..\static\Scripts\main.js"></script>
+
+    <!-- Внутренний скрипт -->
+    <script>
+        //let session = HandleSession()
+        //SessionLog(session);
+        //CheckAge();
+        HandleSession();
+        SessionLog();
+
+        let inputParseFunction = function () {
+            return document.getElementsByTagName('input')[0].value.toLowerCase();
+        }
+    </script>
 </head>
 
 <div id="main">
 
-    <aside class="aside">
-        <div class="navbar">
-            <a href="/" <p>Другие трансляции</p></a>
-            <a href="/"  <p>О проекте</p></a>
-        </div>
-    </aside>
-
+    <!--SIDEBAR-->
 
     <header>
         <div class="header">
@@ -24,7 +36,9 @@
             <p>Покажем, что происходит прямо сейчас</p>
 
             <label>Поиск</label>
-            <input id="search" name="Поиск" />
+            <input id="search" oninput="
+                LiveVideoSearch();
+            " name="Поиск" />
         </div>
     </header>
 
@@ -45,9 +59,7 @@
         </div>
     </body>
 
-    <footer>
-        <p>LifeSpot - все права защищены</p>
-        <p>Связаться с нами: contact@lifespot.ru</p>
-    </footer>
+    <!--FOOTER-->
+
 </div>
 </html>
