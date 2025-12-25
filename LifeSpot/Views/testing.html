@@ -5,31 +5,13 @@
     <meta charset="UTF-8">
     <title>LifeSpot</title>
     <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
-    <script src="../Static/Scripts/welcome.js" defer></script>
+    <script src="../Static/Scripts/testing.js"></script>
 </head>
 
 <header id="header-index">
     <h1>LifeSpot - тестовая страница</h1>
     <p>Здесь можно экспериментировать с кодом</p>
     <input type="text" oninput="
-
-        let userInput = document.getElementsByTagName('input')[0];
-        console.log(userInput.value.toLocaleLowerCase());
-
-        for (let element of document.getElementsByClassName('video-container')) {
-            let childElement = element.getElementsByTagName('h3')[0];
-
-            if (!childElement.innerText.toLocaleLowerCase().includes(userInput.value.toLocaleLowerCase())) {
-
-                //let  = document.getElementById('SearchLable')[0];
-                //console.log(textLable);
-                //textLable.innerText = childElement.innerText;
-                element.style.display = 'none';
-                console.log(childElement.innerText);
-            } else {
-                element.style.display = 'inline-block';
-            }
-        }
 
     " size=50%>
 </header>
@@ -60,7 +42,9 @@
             </div>
 
         </div>
-        <label id="SearchLable">Поиск...</label>
+        <label style="display:block" id="SearchLable">Последний ввод...</label>
+        <input class="curreentInput" type="text"> </>
+        <button onclick="GetPreviousInput()">Показать предыдущую команду</button>
 </body>
 <!--FOOTER-->
 

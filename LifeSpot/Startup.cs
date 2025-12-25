@@ -80,9 +80,9 @@ namespace LifeSpot
                     await context.Response.WriteAsync(js);
                 });
 
-                endpoints.MapGet("/static/scripts/welcome.js", async context =>
+                endpoints.MapGet("/static/scripts/testing.js", async context =>
                 {
-                    var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "static", "scripts", "welcome.js");
+                    var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "static", "scripts", "testing.js");
                     var js = await File.ReadAllTextAsync(jsPath);
                     await context.Response.WriteAsync(js);
                 });

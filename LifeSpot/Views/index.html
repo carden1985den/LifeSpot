@@ -2,21 +2,17 @@
 
 <html lang="en">
 <head>
-    <link href="..\static\css\main.css" rel="stylesheet" type="text/css" </link>
+    <link href="../static/css/main.css" rel="stylesheet" type="text/css" </link>
 
     <meta charset="UTF-8">
     <title>LifeSpot</title>
 
     <!-- Внешний скрипт -->
-    <script src="..\static\Scripts\main.js"></script>
+    <script src="../static/Scripts/main.js"></script>
 
     <!-- Внутренний скрипт -->
     <script>
-        //let session = HandleSession()
-        //SessionLog(session);
-        //CheckAge();
-        HandleSession();
-        SessionLog();
+        //HandleSession(CheckerAge, Logger);
 
         let inputParseFunction = function () {
             return document.getElementsByTagName('input')[0].value.toLowerCase();

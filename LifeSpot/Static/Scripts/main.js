@@ -1,21 +1,38 @@
-﻿let session = new Map();
-function HandleSession() {
-    session.set("startDate", new Date().toLocaleString());
-    session.set("userAgent", window.navigator.userAgent);
+﻿function HandleSession(CheckerAge, Logger) {
+
+    if (NewSession()) {
+        CheckerAge();
+
+        window.sessionStorage.setItem('sessionDate', new Date().toLocaleString());
+        window.sessionStorage.setItem('userAgent', window.navigator.userAgent);
+    }
+    Logger();
 }
 
-function CheckAge() {
-    session.set("age", prompt("Введите ваш возраст"))
+function NewSession() {
+    if (window.sessionStorage.getItem('sessionDate') == null) {
+        return true;
+    }
+    return false;
+}
 
-    if (session.get("age") < 18) {
-        alert("Наши трансляции не предназначены для лиц моложе 18 лет. Вы будете перенаправлены");
-        window.location.replace("https://google.com");
+let CheckerAge = () => {
+    
+    if (window.sessionStorage.getItem('userAge') == null) {
+        let age = prompt("Enter your age...");
+
+        if (age < 18) {
+            alert("Наши трансляции не предназначены для лиц моложе 18 лет. Вы будете перенаправлены");
+            window.location.replace("https://google.com");
+        } else {
+            window.sessionStorage.setItem('userAge', age);
+        }
     }
 }
 
-let SessionLog = function() {
-    for (let item of session) {
-        console.log(item);
+let Logger = () => {
+    for (let item in window.sessionStorage) {
+        console.log(window.sessionStorage[item]);
     }
 }
 
