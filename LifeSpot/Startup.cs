@@ -27,6 +27,9 @@ namespace LifeSpot
             app.UseRouting();
 
             string sideBarHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "views", "shared", "sidebar.html"));
+
+            string imgSlideBarHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "views", "shared", "imgslidebar.html"));
+
             string footerHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "views", "shared", "footer.html"));
 
 
@@ -51,6 +54,7 @@ namespace LifeSpot
                     var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "about.html");
                     var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
                         .Replace("<!--SIDEBAR-->", sideBarHtml)
+                        .Replace("<!--IMGSLIDEBAR-->", imgSlideBarHtml)
                         .Replace("<!--FOOTER-->", footerHtml);
                     await context.Response.WriteAsync(html.ToString());
                 });
@@ -93,6 +97,27 @@ namespace LifeSpot
                     var js = await File.ReadAllTextAsync(jsPath);
                     await context.Response.WriteAsync(js);
                 });
+
+                endpoints.MapGet("/static/scripts/imgslider.js", async context =>
+                {
+                    var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "static", "scripts", "imgslider.js");
+                    var js = await File.ReadAllTextAsync(jsPath);
+                    await context.Response.WriteAsync(js);
+                });
+
+                var imgPath = Path.Combine(Directory.GetCurrentDirectory(), "static", "pictures");
+                string[] imgFiles = Directory.GetFiles(imgPath);
+
+                foreach (var img in imgFiles)
+                {
+                    var imgFile = new FileInfo(img);
+                    string endpointImg = $"/pictures/{imgFile.Name}";
+                    endpoints.MapGet(endpointImg, async () =>
+                    {
+                        var fileBytes = await File.ReadAllBytesAsync(imgFile.FullName);
+                        return Results.File(fileBytes, "image/jpg");
+                    });
+                }
             });
         }
     }
