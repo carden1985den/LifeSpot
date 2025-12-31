@@ -11,11 +11,12 @@ mainPictureTitle.innerText = thumbnailsArray[0].alt;
 
 //Уменьщаем значение переменной что б выбрать предыдущий img в массиве
 function slidePrev() {
-    if (currentThumbnail < 0 || currentThumbnail > thumbnailsCount - 1) {
-        currentThumbnail = thumbnailsCount - 1;
-    }
 
     currentThumbnail -= 1;
+
+    if (currentThumbnail > thumbnailsCount - 1 || currentThumbnail < 0) {
+        currentThumbnail = thumbnailsCount - 1;
+    }
 
     let slidePicture = thumbnailsArray[currentThumbnail]
     mainPicture.src = slidePicture.src;
@@ -26,9 +27,10 @@ function slidePrev() {
 //Увеличиваем значение переменной что б выбрать следующий img в массиве
 function slideNext() {
 
-    if (currentThumbnail <= thumbnailsCount - 1 || currentThumbnail > 0) {
-        currentThumbnail += 1;
-    } else {
+    currentThumbnail += 1;
+
+    if (currentThumbnail > thumbnailsCount - 1 || currentThumbnail < 0)
+    {
         currentThumbnail = 0;
     }
 

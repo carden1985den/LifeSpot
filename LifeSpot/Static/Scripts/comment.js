@@ -2,15 +2,15 @@
 function Comment() {
     let max = 9999;
     let min = 1;
-    //this.name = prompt("Введите своё имя");
-    this.name = "Денис"
+    this.name = prompt("Введите своё имя");
+    //this.name = "Денис"
     if (this.name.length == 0) {
         this.empty = true;
         return
     }
 
-    //this.text = prompt("Введите комментарий");
-    this.text = "Комментарий"
+    this.text = prompt("Введите комментарий");
+    //this.text = "Комментарий"
     if (this.text.length == 0) {
         this.empty = true;
         return
@@ -51,7 +51,9 @@ function PostComment(comment) {
 
     let codeLike = '';
     if (comment.hasOwnProperty("rate")) {
-        codeLike = `<div style="display:inline-block" id="comment_${comment.id}"> <img onclick="setLike(${comment.id})" style="width:15px; height:15px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Likee_new_logo.png/1280px-Likee_new_logo.png"/> <i> (${comment.rate}) </i> </div>`
+        codeLike = `<div style="display:inline-block" id="comment_${comment.id}"> <img onclick="setLike(${comment.id})" style="width:15px; 
+        height:15px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Likee_new_logo.png/1280px-Likee_new_logo.png"/>
+        <i> (${comment.rate}) </i> </div>`
     }
 
     document.getElementsByClassName('comment_area')[0].innerHTML +=
